@@ -1,4 +1,4 @@
-// project 1.cpp: определяет точку входа для консольного приложения.
+// project 1.cpp: Г®ГЇГ°ГҐГ¤ГҐГ«ГїГҐГІ ГІГ®Г·ГЄГі ГўГµГ®Г¤Г  Г¤Г«Гї ГЄГ®Г­Г±Г®Г«ГјГ­Г®ГЈГ® ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГї.
 //
 
 #include "stdafx.h"
@@ -8,18 +8,18 @@
 
 using namespace std;
 
-vector <int> Vert; //Вектор вершин
-int **A, n; //Матрица смежности, размерность
-vector <int> Path; //Вектор гамильтонова пути
-vector <bool> Visited; //Посещенные вершины
+vector <int> Vert; //Р’РµРєС‚РѕСЂ РІРµСЂС€РёРЅ
+int **A, n; //РњР°С‚СЂРёС†Р° СЃРјРµР¶РЅРѕСЃС‚Рё, СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ
+vector <int> Path; //Р’РµРєС‚РѕСЂ РіР°РјРёР»СЊС‚РѕРЅРѕРІР° РїСѓС‚Рё
+vector <bool> Visited; //РџРѕСЃРµС‰РµРЅРЅС‹Рµ РІРµСЂС€РёРЅС‹
 
-bool data_input(const string file_name) { // Считывание данных из файла
+bool data_input(const string file_name) {  // РЎС‡РёС‚С‹РІР°РЅРёРµ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°
 	
 	int tek;
 	ifstream in_file;
 	in_file.open(file_name);
 
-	if (in_file) { // если файл успешно открылся
+	if (in_file) { // РµСЃР»Рё С„Р°Р№Р» СѓСЃРїРµС€РЅРѕ РѕС‚РєСЂС‹Р»СЃСЏ
 		if (in_file >> n) {
 			while (!in_file.eof()) {
 				in_file >> tek;
@@ -34,7 +34,7 @@ bool data_input(const string file_name) { // Считывание данных из файла
 	return true;
 };
 
-void create_A () { // Создание матрицы смежности
+void create_A () { // РЎРѕР·РґР°РЅРёРµ РјР°С‚СЂРёС†С‹ СЃРјРµР¶РЅРѕСЃС‚Рё
 	A = (int **)malloc(n * sizeof(int *));
 	for (int i = 0; i < n; i++)
 		A[i] = (int *)malloc(n * sizeof(int));
@@ -46,12 +46,12 @@ void create_A () { // Создание матрицы смежности
 		}
 	}
 
-	for (int i = 0; i < n; i++) // Инициализация вектора посещения вершин
+	for (int i = 0; i < n; i++)  // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РІРµРєС‚РѕСЂР° РїРѕСЃРµС‰РµРЅРёСЏ РІРµСЂС€РёРЅ
 		Visited.push_back(false);
 };
 
 
-bool hamilton(int curr) // Нахождение гамильтонова пути
+bool hamilton(int curr) // РќР°С…РѕР¶РґРµРЅРёРµ РіР°РјРёР»СЊС‚РѕРЅРѕРІР° РїСѓС‚Рё
 {
 	Path.push_back(curr);
 
@@ -70,7 +70,7 @@ bool hamilton(int curr) // Нахождение гамильтонова пути
 	return false;
 };
 
-void data_output(const string file_name) { // Запись пути в файл
+void data_output(const string file_name) { // Р—Р°РїРёСЃСЊ РїСѓС‚Рё РІ С„Р°Р№Р»
 	ofstream answerFile;
 	answerFile.open(file_name);
 
@@ -81,7 +81,7 @@ void data_output(const string file_name) { // Запись пути в файл
 	answerFile.close();
 }
 
-void no_way_answer(const string file_name) { // Завись отрицательного ответа
+void no_way_answer(const string file_name) { // Р—Р°РїРёСЃСЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРіРѕ РѕС‚РІРµС‚Р°
 	ofstream no_wayFile;
 	no_wayFile.open(file_name);
 
@@ -91,7 +91,7 @@ void no_way_answer(const string file_name) { // Завись отрицательного ответа
 }
 
 
-void error_output(const string file_name) { // Вывод ошибки
+void error_output(const string file_name) { // Р’С‹РІРѕРґ РѕС€РёР±РєРё
 	ofstream errorFile;
 	errorFile.open(file_name);
 
