@@ -1,4 +1,4 @@
-#include "stdafx.h"
+п»ї#include "stdafx.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -10,13 +10,13 @@ Graph::Graph()
 {
 }
 
-bool Graph::data_input(const string file_name) { // Считывание данных из файла
+bool Graph::data_input(const string file_name) { // РЎС‡РёС‚С‹РІР°РЅРёРµ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°
 
 	int tek;
 	ifstream in_file;
 	in_file.open(file_name);
 
-	if (in_file) { // если файл успешно открылся
+	if (in_file) { // РµСЃР»Рё С„Р°Р№Р» СѓСЃРїРµС€РЅРѕ РѕС‚РєСЂС‹Р»СЃСЏ
 		if (in_file >> n && n>0) {
 			while (!in_file.eof()) {
 				if(in_file >> tek && tek>0)
@@ -32,7 +32,7 @@ bool Graph::data_input(const string file_name) { // Считывание данных из файла
 	return true;
 };
 
-void Graph::create_A() { // Создание матрицы смежности
+void Graph::create_A() { // РЎРѕР·РґР°РЅРёРµ РјР°С‚СЂРёС†С‹ СЃРјРµР¶РЅРѕСЃС‚Рё
 	A = (int **)malloc(n * sizeof(int *));
 	for (int i = 0; i < n; i++)
 		A[i] = (int *)malloc(n * sizeof(int));
@@ -44,12 +44,12 @@ void Graph::create_A() { // Создание матрицы смежности
 		}
 	}
 
-	for (int i = 0; i < n; i++) // Инициализация вектора посещения вершин
+	for (int i = 0; i < n; i++) // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РІРµРєС‚РѕСЂР° РїРѕСЃРµС‰РµРЅРёСЏ РІРµСЂС€РёРЅ
 		Visited.push_back(false);
 };
 
 
-bool Graph::hamilton(int curr) // Нахождение гамильтонова пути
+bool Graph::hamilton(int curr) // РќР°С…РѕР¶РґРµРЅРёРµ РіР°РјРёР»СЊС‚РѕРЅРѕРІР° РїСѓС‚Рё
 {
 	Path.push_back(curr);
 
@@ -68,7 +68,7 @@ bool Graph::hamilton(int curr) // Нахождение гамильтонова пути
 	return false;
 };
 
-void Graph::data_output(const string file_name) { // Запись пути в файл
+void Graph::data_output(const string file_name) { // Р—Р°РїРёСЃСЊ РїСѓС‚Рё РІ С„Р°Р№Р»
 	
 	ofstream answerFile;
 	answerFile.open(file_name);
@@ -80,7 +80,7 @@ void Graph::data_output(const string file_name) { // Запись пути в файл
 	answerFile.close();
 }
 
-void Graph::no_way_answer(const string file_name) { // Запись отрицательного ответа
+void Graph::no_way_answer(const string file_name) { // Р—Р°РїРёСЃСЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРіРѕ РѕС‚РІРµС‚Р°
 
 	ofstream no_wayFile;
 	no_wayFile.open(file_name);
@@ -91,7 +91,7 @@ void Graph::no_way_answer(const string file_name) { // Запись отрицательного отв
 }
 
 
-void Graph::error_output(const string file_name) { // Вывод ошибки
+void Graph::error_output(const string file_name) { // Р’С‹РІРѕРґ РѕС€РёР±РєРё
 
 	ofstream errorFile;
 	errorFile.open(file_name);

@@ -1,24 +1,24 @@
-#pragma once
+п»ї#pragma once
 class Graph
 {
 private:
-	std::vector <int> Vert; // Вектор вершин
-	int **A, n; // Матрица смежности, размерность
-	std::vector <int> Path; // Вектор гамильтонова пути
-	std::vector <bool> Visited; // Посещенные вершины
+	std::vector <int> Vert; // Р’РµРєС‚РѕСЂ РІРµСЂС€РёРЅ
+	int **A, n; // РњР°С‚СЂРёС†Р° СЃРјРµР¶РЅРѕСЃС‚Рё, СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ
+	std::vector <int> Path; // Р’РµРєС‚РѕСЂ РіР°РјРёР»СЊС‚РѕРЅРѕРІР° РїСѓС‚Рё
+	std::vector <bool> Visited; // РџРѕСЃРµС‰РµРЅРЅС‹Рµ РІРµСЂС€РёРЅС‹
 
 public:
 	
 	Graph();
 
-	bool data_input(const std::string file_name); // Считывание данных из файла
+	bool data_input(const std::string file_name); // РЎС‡РёС‚С‹РІР°РЅРёРµ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°
 
-	void create_A(); // Создание матрицы смежности
-	bool hamilton(int curr); // Нахождение гамильтонова пути
+	void create_A(); // РЎРѕР·РґР°РЅРёРµ РјР°С‚СЂРёС†С‹ СЃРјРµР¶РЅРѕСЃС‚Рё
+	bool hamilton(int curr); // РќР°С…РѕР¶РґРµРЅРёРµ РіР°РјРёР»СЊС‚РѕРЅРѕРІР° РїСѓС‚Рё
 
-	void data_output(const std::string file_name); // Запись пути в файл
-	void no_way_answer(const std::string file_name); // Запись отрицательного ответа
-	void error_output(const std::string file_name); // Вывод ошибки
+	void data_output(const std::string file_name); // Р—Р°РїРёСЃСЊ РїСѓС‚Рё РІ С„Р°Р№Р»
+	void no_way_answer(const std::string file_name); // Р—Р°РїРёСЃСЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРіРѕ РѕС‚РІРµС‚Р°
+	void error_output(const std::string file_name); // Р’С‹РІРѕРґ РѕС€РёР±РєРё
 
 	~Graph();
 };
